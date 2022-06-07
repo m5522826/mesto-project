@@ -1,0 +1,16 @@
+.edit-form__description-info {
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin: 2% 0 3%;
+  padding: 0;
+}
+
+.edit-form__description-info:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 600px) {
+  .edit-form__description-info {
+    margin: 6% 0 3%;
+  }
+}

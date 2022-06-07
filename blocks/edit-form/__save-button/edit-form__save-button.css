@@ -1,0 +1,25 @@
+.edit-form__save-button {
+  margin: 4% auto;
+  color: #fff;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1100px) {
+  .edit-form__save-button {
+    font-size: 14px;
+    line-height: 17px;
+    margin: 6% auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .edit-form__save-button {
+    margin: 13px auto;
+  }
+}
