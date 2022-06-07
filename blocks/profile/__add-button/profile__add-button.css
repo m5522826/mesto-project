@@ -6,7 +6,7 @@
   margin: 23% 0;
   padding: 0;
   box-sizing: border-box;
-  background-image: url(/images/add-button.svg);
+  background-image: url(./add-button.svg);
   background-position: center;
   background-repeat: no-repeat;
 }
