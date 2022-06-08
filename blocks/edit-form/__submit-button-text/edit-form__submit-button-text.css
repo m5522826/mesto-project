@@ -1,6 +1,9 @@
-.edit-form__save-button {
+.edit-form__submit-button-text {
+  border: 0;
   margin: 4% auto;
+  padding: 0;
   color: #fff;
+  background-color: black;
   font-family: inherit;
   font-weight: 400;
   font-size: 18px;
@@ -11,7 +14,7 @@
 }
 
 @media screen and (max-width: 1100px) {
-  .edit-form__save-button {
+  .edit-form__submit-button-text {
     font-size: 14px;
     line-height: 17px;
     margin: 6% auto;
@@ -19,7 +22,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .edit-form__save-button {
+  .edit-form__submit-button-text {
     margin: 13px auto;
   }
 }

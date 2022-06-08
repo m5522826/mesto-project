@@ -1,14 +1,17 @@
 .popup__close-icon {
   background-image: url(./close-icon.svg);
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: 0;
+  background-color: rgba(0, 0, 0, 0);
   width: 32px;
   height: 32px;
   margin: 0;
   padding: 0;
-  position: fixed;
-  top: 178px;
-  left: 67%;
-  right: 15%;
+  position: absolute;
+  top: -13%;
+  right: -10%;
 }
 
 .popup__close-icon:hover {
@@ -20,15 +23,7 @@
     background-image: url(./close-icon-small.svg);
     width: 20px;
     height: 20px;
-    top: 19%;
-    left: 92%;
-    right: 5%;
-  }
-}
-
-@media screen and (min-width: 1290px) {
-  .popup__close-icon {
-    left: 62%;
-    right: 45%;
+    top: -12%;
+    right: 0;
   }
 }

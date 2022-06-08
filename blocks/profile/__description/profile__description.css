@@ -16,3 +16,9 @@
     margin: 2% 0;
   }
 }
+
+@media screen and (min-width: 601px) and (max-width: 1000px) {
+  .profile__description {
+    margin: 2% 10%;
+  }
+}

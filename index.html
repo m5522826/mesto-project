@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./pages/index.css">
   <title>Путешествие по&nbsp;России</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Интерактивный сервис с галереей фотографий путешествий">
   <meta name="keywords" content="Путешествия, Фотографии, Галерея">
   <meta name="author" content="Маргарита Алексеева">
@@ -13,17 +12,15 @@
 <body class="page">
   <section class="popup popup_opened">
     <div class="popup__container">
-      <div class="popup__close-icon"></div>
-      <form class="edit-form">
+      <button class="popup__close-icon" type="button"></button>
+      <form class="edit-form" name="edit-form">
         <h2 class="edit-form__title">Редактировать профиль</h2>
-        <fieldset class="edit-form__name-info">
-          <input type="text" class="edit-form__name-info_text" placeholder="Жак-Ив Кусто" required>
-        </fieldset>
-        <fieldset class="edit-form__description-info">
-          <input type="text" class="edit-form__description-info_text" placeholder="Исследователь океана" required>
+        <fieldset class="edit-form__user-info">
+          <input type="text" class="edit-form__placeholder" placeholder="Жак-Ив Кусто" required>
+          <input type="text" class="edit-form__placeholder" placeholder="Исследователь океана" required>
         </fieldset>
         <fieldset class="edit-form__submit-button">
-          <input type="submit" class="edit-form__submit-button_text"><h3 class="edit-form__save-button">Сохранить</h3>
+          <input type="submit" class="edit-form__submit-button-text" value="Сохранить">
         </fieldset>
       </form>
     </div>
@@ -37,37 +34,55 @@
       <div class="profile__info">
         <div class="profile__info-box">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <button class="profile__edit-button"></button>
+          <button class="profile__edit-button" type="button"></button>
         </div>
-      <h3 class="profile__description">Исследователь океана</h3>
+      <p class="profile__description">Исследователь океана</p>
       </div>
-      <button class="profile__add-button"></button>
+      <button class="profile__add-button" type="button"></button>
     </section>
     <section>
       <ul class="elements">
         <li class="element">
           <img class="element__photo" src="./images/element-karachaevsk.png" alt="Фото Карачаевска">
-          <div class="element__title-box"><h2 class="element__title">Карачаевск</h2><button class="element__like"></button></div>
+          <div class="element__title-box">
+            <h2 class="element__title">Карачаевск</h2>
+            <button class="element__like" type="button"></button>
+          </div>
         </li>
         <li class="element">
           <img class="element__photo" src="./images/element-elbrus.png" alt="Фото горы Эльбрус">
-          <div class="element__title-box"><h2 class="element__title">Гора Эльбрус</h2><button class="element__like"></button></div>
+          <div class="element__title-box">
+            <h2 class="element__title">Гора Эльбрус</h2>
+            <button class="element__like" type="button"></button>
+          </div>
         </li>
         <li class="element">
           <img class="element__photo" src="./images/element-dombai.png" alt="Фото Домбая">
-          <div class="element__title-box"><h2 class="element__title">Домбай</h2><button class="element__like"></button></div>
+          <div class="element__title-box">
+            <h2 class="element__title">Домбай</h2>
+            <button class="element__like" type="button"></button>
+          </div>
         </li>
         <li class="element">
           <img class="element__photo" src="./images/element-elbrus.png" alt="Фото горы Эльбрус">
-          <div class="element__title-box"><h2 class="element__title">Гора Эльбрус</h2><button class="element__like"></button></div>
+          <div class="element__title-box">
+            <h2 class="element__title">Гора Эльбрус</h2>
+            <button class="element__like" type="button"></button>
+          </div>
         </li>
         <li class="element">
           <img class="element__photo" src="./images/element-dombai.png" alt="Фото Домбая">
-          <div class="element__title-box"><h2 class="element__title">Домбай</h2><button class="element__like"></button></div>
+          <div class="element__title-box">
+            <h2 class="element__title">Домбай</h2>
+            <button class="element__like" type="button"></button>
+          </div>
         </li>
         <li class="element">
           <img class="element__photo" src="./images/element-karachaevsk.png" alt="Фото Карачаевска">
-          <div class="element__title-box"><h2 class="element__title">Карачаево-Черкессия</h2><button class="element__like"></button></div>
+          <div class="element__title-box">
+            <h2 class="element__title">Карачаево-Черкессия</h2>
+            <button class="element__like" type="button"></button>
+          </div>
         </li>
       </ul>
     </section>

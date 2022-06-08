@@ -1,0 +1,21 @@
+.edit-form__user-info {
+  border: 0;
+  margin: 10% 0 3%;
+  padding: 0;
+}
+
+.edit-form__user-info:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 400px) {
+  .edit-form__user-info {
+    margin: 27% 0 3%;
+  }
+}
+
+@media screen and (min-width: 401px) and (max-width: 600px) {
+  .edit-form__user-info {
+    margin: 0 auto;
+  }
+}
