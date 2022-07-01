@@ -11,12 +11,6 @@
   background-repeat: no-repeat;
 }
 
-.element__like:active {
-  background-image: url(./element-like-active.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 .element__like:hover {
   opacity: 0.5;
 }

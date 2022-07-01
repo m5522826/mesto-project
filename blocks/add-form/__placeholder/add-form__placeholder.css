@@ -1,0 +1,38 @@
+.add-form__placeholder {
+  border: 0;
+  margin: 0 0 5%;
+  padding: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  width: 100%;
+  min-height: 40px;
+}
+
+.add-form__placeholder:last-of-type {
+  margin-bottom: 0;
+}
+
+.add-form__placeholder:focus {
+  outline: none;
+}
+
+.add-form__placeholder::placeholder {
+  color: rgba(0, 0, 0, 0.2);
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+@media screen and (max-width: 400px) {
+  .add-form__placeholder {
+    margin: 0 0 6%;
+  }
+}
+
+@media screen and (min-width: 401px) and (max-width: 600px) {
+  .add-form__placeholder {
+    margin: 8% 0 0;
+  }
+}

@@ -1,0 +1,21 @@
+.add-form__place-info {
+  border: 0;
+  margin: 10% 0 3%;
+  padding: 0;
+}
+
+.add-form__place-info:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 400px) {
+  .add-form__place-info {
+    margin: 27% 0 3%;
+  }
+}
+
+@media screen and (min-width: 401px) and (max-width: 600px) {
+  .add-form__place-info {
+    margin: 0 auto;
+  }
+}

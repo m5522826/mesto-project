@@ -1,0 +1,42 @@
+      <li class="element" id="element1">
+          <img class="element__photo" src="./images/element-karachaevsk.png" alt="Фото Карачаевска">
+          <div class="element__title-box">
+            <h2 class="element__title">Карачаевск</h2>
+            <button class="element__like" type="button"></button>
+          </div>
+        </li>
+        <li class="element" id="element2">
+          <img class="element__photo" src="./images/element-elbrus.png" alt="Фото горы Эльбрус">
+          <div class="element__title-box">
+            <h2 class="element__title">Гора Эльбрус</h2>
+            <button class="element__like" type="button"></button>
+          </div>
+        </li>
+        <li class="element" id="element3">
+          <img class="element__photo" src="./images/element-dombai.png" alt="Фото Домбая">
+          <div class="element__title-box">
+            <h2 class="element__title">Домбай</h2>
+            <button class="element__like" type="button"></button>
+          </div>
+        </li>
+        <li class="element" id="element4">
+          <img class="element__photo" src="./images/element-elbrus.png" alt="Фото горы Эльбрус">
+          <div class="element__title-box">
+            <h2 class="element__title">Гора Эльбрус</h2>
+            <button class="element__like" type="button"></button>
+          </div>
+        </li>
+        <li class="element" id="element5">
+          <img class="element__photo" src="./images/element-dombai.png" alt="Фото Домбая">
+          <div class="element__title-box">
+            <h2 class="element__title">Домбай</h2>
+            <button class="element__like" type="button"></button>
+          </div>
+        </li>
+        <li class="element" id="element6">
+          <img class="element__photo" src="./images/element-karachaevsk.png" alt="Фото Карачаевска">
+          <div class="element__title-box">
+            <h2 class="element__title">Карачаево-Черкессия</h2>
+            <button class="element__like" type="button"></button>
+          </div>
+        </li>
