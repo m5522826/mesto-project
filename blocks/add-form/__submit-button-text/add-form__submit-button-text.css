@@ -13,6 +13,10 @@
   justify-content: center;
 }
 
+.add-form__submit-button-text:hover {
+  cursor: url("./cursor.png"), pointer;
+}
+
 @media screen and (max-width: 1100px) {
   .add-form__submit-button-text {
     font-size: 14px;

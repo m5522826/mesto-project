@@ -7,3 +7,7 @@
   border: none;
   box-sizing: border-box;
 }
+
+.element__button-img:hover {
+  cursor: url("./cursor.png"), pointer;
+}

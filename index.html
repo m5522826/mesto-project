@@ -10,45 +10,6 @@
   <meta name="author" content="Маргарита Алексеева">
 </head>
 <body class="page">
-  <section class="popup" id="popupEdit">
-    <div class="popup__container">
-      <button class="popup__close-icon" type="button"></button>
-      <form class="edit-form" name="edit-form">
-        <h2 class="edit-form__title">Редактировать профиль</h2>
-        <fieldset class="edit-form__user-info">
-          <input type="text" class="edit-form__placeholder" id="nameInput" placeholder="Жак-Ив Кусто" required>
-          <input type="text" class="edit-form__placeholder" id="jobInput" placeholder="Исследователь океана" required>
-        </fieldset>
-        <fieldset class="edit-form__submit-button">
-          <input type="submit" class="edit-form__submit-button-text" value="Сохранить">
-        </fieldset>
-      </form>
-    </div>
-  </section>
-  <section class="popup" id="popupAdd">
-    <div class="popup__container">
-      <button class="popup__close-icon" type="button"></button>
-      <form class="add-form" name="add-form">
-        <h2 class="add-form__title">Новое место</h2>
-        <fieldset class="add-form__place-info">
-          <input type="text" class="add-form__placeholder" id="placeInput" placeholder="Название" required>
-          <input type="url" class="add-form__placeholder" id="urlInput" placeholder="Ссылка на картинку" required>
-        </fieldset>
-        <fieldset class="add-form__submit-button">
-          <input type="submit" class="add-form__submit-button-text" value="Создать">
-        </fieldset>
-      </form>
-    </div>
-  </section>
-  <section class="popup" id="popupPhoto">
-    <div class="popup__cont-img">
-      <button class="popup__close-icon" type="button"></button>
-      <figure class="photo-form" id="photo-form">
-        <img class="photo-form__img" alt="Картинка" src="./images/element-elbrus.png">
-        <figcaption class="photo-form__title">Эльбрус</figcaption>
-      </figure>
-    </div>
-  </section>
   <header class="header">
     <img alt="Логотип проекта Место" class="header__logo" src="images/Mesto-logo.svg">
   </header>
@@ -72,12 +33,45 @@
   <footer class="footer">
     <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
   </footer>
-  <script src="./blocks/popup/__close-icon/popup__close-icon.js"></script>
-  <script src="./blocks/profile/__edit-button/profile__edit-button.js"></script>
-  <script src="./blocks/edit-form/__submit-button/edit-form__submit-button.js"></script>
-  <script src="./blocks/profile/__add-button/profile__add-button.js"></script>
-  <script src="./blocks/element/element.js"></script>
-  <script src="./blocks/add-form/__submit-button/add-form__submit-button.js"></script>
-  <script src="./blocks/photo-form/photo-form.js"></script>
+  <section class="popup" id="popupEdit">
+    <div class="popup__container">
+      <button class="popup__close-icon" type="button"></button>
+      <form class="edit-form" name="edit-form">
+        <h2 class="edit-form__title">Редактировать профиль</h2>
+        <fieldset class="edit-form__user-info">
+          <input type="text" class="edit-form__placeholder" id="nameInput" placeholder="Имя" required>
+          <input type="text" class="edit-form__placeholder" id="jobInput" placeholder="Род деятельности" required>
+        </fieldset>
+        <fieldset class="edit-form__submit-button">
+          <input type="submit" class="edit-form__submit-button-text" value="Сохранить">
+        </fieldset>
+      </form>
+    </div>
+  </section>
+  <section class="popup" id="popupAdd">
+    <div class="popup__container">
+      <button class="popup__close-icon" type="button"></button>
+      <form class="add-form" name="add-form">
+        <h2 class="add-form__title">Новое место</h2>
+        <fieldset class="add-form__place-info">
+          <input type="text" class="add-form__placeholder" id="placeInput" placeholder="Название" required>
+          <input type="url" class="add-form__placeholder" id="urlInput" placeholder="Ссылка на картинку" required>
+        </fieldset>
+        <fieldset class="add-form__submit-button">
+          <input type="submit" class="add-form__submit-button-text" value="Создать">
+        </fieldset>
+      </form>
+    </div>
+  </section>
+  <section class="popup popup_dark-background" id="popupPhoto">
+    <div class="popup__cont-img">
+      <button class="popup__close-icon" type="button"></button>
+      <figure class="photo-form" id="photo-form">
+        <img class="photo-form__img" alt="Картинка" src="./images/element-elbrus.png">
+        <figcaption class="photo-form__title">Эльбрус</figcaption>
+      </figure>
+    </div>
+  </section>
+  <script src="./scripts/scripts.js"></script>
 </body>
 </html>
