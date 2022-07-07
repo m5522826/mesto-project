@@ -32,29 +32,39 @@ const initialCards = [
 var Place = document.querySelector('.elements');
   
 function addPlace(elementTitle, link){
-      Place.insertAdjacentHTML('afterbegin', `
-         <li class="element">
-           <button class="element__trash" type="button"></button>
-           <button class="element__button-img" type="button"><img class="element__photo" src="${link}" alt="${elementTitle}"></button>
-            <div class="element__title-box">
-              <h2 class="element__title">${elementTitle}</h2>
-              <button class="element__like" type="button"></button>
-            </div>
-          </li>
-      `);
-    document.querySelector('.element__like').addEventListener('click', function (evt) {
-        evt.target.classList.toggle('element__like_active');       
-        });
-        
-    document.querySelector('.element__button-img').addEventListener('click', function (evt) {
-       showPhoto(elementTitle,link)     
-        });
+    const elements = document.querySelector('.elements');
+    const element = document.querySelector('#element').content;
+    const userElement = element.querySelector('.element').cloneNode(true); 
+    userElement.querySelector('.element__photo').src = link;
+    userElement.querySelector('.element__photo').alt = elementTitle;
+    userElement.querySelector('.element__title').textContent = elementTitle;
+    elements.prepend(userElement); 
+
       } 
 for (let i = 0; i < initialCards.length; i++) { // выведет 0, затем 1, затем 2
     addPlace(initialCards[i].name,initialCards[i].link);
-    delPlace()
+    delPlace();
+    addBigPicture(initialCards[i].name,initialCards[i].link);
     }
 
+
+function addLike(){
+    let elementList = document.querySelectorAll('.element__like');
+    elementList.forEach( element => {
+        element.addEventListener('click', function (evt) {
+            evt.target.classList.toggle('element__like_active');       
+            });
+    })
+}
+
+function addBigPicture(elementTitle,link){
+    let elementList = document.querySelectorAll('.element__button-img');
+    elementList.forEach( element => {
+        element.addEventListener('click', function (evt) {
+                showPhoto(elementTitle,link)     
+                 });
+    })
+}
 
 function delPlace(){
     document.querySelector('.element__trash').addEventListener('click', function () {
@@ -145,7 +155,9 @@ function formAddSubmitHandler (evt) {
   var placeInput = userPlaceInput.value;
   var urlInput = userUrlInput.value;
   addPlace(placeInput,urlInput);
-  delPlace()
+  addBigPicture(placeInput,urlInput)   
+  delPlace();
+  addLike();
   document.querySelector('#urlInput').value = "";
   document.querySelector('#placeInput').value = "";
 
@@ -166,3 +178,4 @@ function showPhoto(elementTitle, link) {
   popupOpenedPhoto.classList.add('popup_opened');
   console.log('${popupOpenedPhoto.class.List}');
 }
+addLike();
