@@ -1,31 +1,16 @@
 .popup__cont-img {
   position: fixed;
+  display: flex;
+  align-self: center;
   padding: 0;
   background-color: rgba(0, 0, 0, 0);
   margin: 0;
   z-index: 2;
-  top: 218px;
-  left: 240px;
-  right: 240px;
-  bottom: 100px;
-  max-width: 75%;
-  max-height: 75%;
+  max-width: 90%;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (min-width: 600px) {
   .popup__cont-img {
-    top: 25.5%;
-    left: 6%;
-    right: 5%;
-    bottom: 20px;
-  }
-}
-
-@media screen and (min-width: 401px) and (max-width: 1150px) {
-  .popup__cont-img {
-    top: 100px;
-    left: 10%;
-    right: 10%;
-    bottom: 30px;
+    max-width: 75%;
   }
 }

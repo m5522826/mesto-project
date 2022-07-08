@@ -1,7 +1,9 @@
 .photo-form__img {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   overflow: hidden;
   object-fit: contain;
-
+  max-height: 540px;
+  max-width: 100%;
+  position: relative;
 }
