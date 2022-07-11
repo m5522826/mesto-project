@@ -48,7 +48,7 @@ function newPlace(elementTitle, link){
   const placeElement = element.querySelector('.element').cloneNode(true); 
   const placeElementPhoto = placeElement.querySelector('.element__photo');
   const placeElementLike = placeElement.querySelector('.element__like');
-  const PlaceElementButtonImage = placeElement.querySelector('.element__button-img');
+  const placeElementButtonImage = placeElement.querySelector('.element__button-img');
   placeElementPhoto.src = link;
   placeElementPhoto.alt = elementTitle;
   placeElement.querySelector('.element__title').textContent = elementTitle;
@@ -58,7 +58,7 @@ function newPlace(elementTitle, link){
   placeElementLike.addEventListener('click', function () {
     placeElementLike.classList.toggle('element__like_active');
   });
-  PlaceElementButtonImage.addEventListener('click', function () {
+  placeElementButtonImage.addEventListener('click', function () {
     showPhoto(elementTitle,link);
   });
   return placeElement;
@@ -99,8 +99,6 @@ function submitHandlerAddForm (evt) {
   evt.preventDefault(); 
   renderCard(newPlace(placeInput.value,urlInput.value)); 
   closePopup(popupAdd);
-  urlInput.value = "";
-  placeInput.value = "";
 }
 
 function showPhoto(elementTitle, link) {
@@ -110,9 +108,6 @@ photoFormTitle.textContent = elementTitle;
 openPopup(popupPhoto);
 }
 
-userNameInput.value = profileName.textContent;
-userJobInput.value = profileWork.textContent;
-
 for (let i = 0; i < initialCards.length; i++) { 
   renderCard(newPlace(initialCards[i].name,initialCards[i].link));
   }
@@ -120,13 +115,19 @@ for (let i = 0; i < initialCards.length; i++) {
 popupEdit.querySelector('.popup__close-icon').addEventListener('click', function(){closePopup(popupEdit)});
 popupAdd.querySelector('.popup__close-icon').addEventListener('click', function(){
 closePopup(popupAdd);
-urlInput.value = "";
-placeInput.value = "";
 });
 popupPhoto.querySelector('.popup__close-icon_img').addEventListener('click', function(){closePopup(popupPhoto)});
-buttonAdd.addEventListener('click', function(){openPopup(popupAdd)});
+buttonAdd.addEventListener('click', function(){
+urlInput.value = "";
+placeInput.value = "";
+openPopup(popupAdd);
+});
 
-buttonEdit.addEventListener('click', function(){openPopup(popupEdit)});
+buttonEdit.addEventListener('click', function(){
+userNameInput.value = profileName.textContent;
+userJobInput.value = profileWork.textContent;
+openPopup(popupEdit);
+});
 
 formElementEdit.addEventListener('submit', submitHandlerEditForm);
 
