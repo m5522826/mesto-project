@@ -37,3 +37,7 @@
     margin: 8% 0 0;
   }
 }
+
+.edit-form__placeholder:invalid {
+  border-bottom: 1px solid red;
+}

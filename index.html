@@ -15,7 +15,10 @@
   </header>
   <main class="content">
     <section class="profile">
-      <img alt="Аватар" class="profile__avatar" src="./images/profile-photo.png">
+      <div class="profile__avatar">
+        <div class="profile__avatar_overlay"></div>
+        <img class="profile__avatar-img" src="./images/profile-photo.png" alt="Аватар пользователя">
+      </div>
       <div class="profile__info">
         <div class="profile__info-box">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -46,40 +49,50 @@
   <section class="popup" id="popupEdit">
     <div class="popup__container">
       <button class="popup__close-icon" type="button"></button>
-      <form class="edit-form" name="edit-form">
+      <form class="edit-form" name="editForm" novalidate>
         <h2 class="edit-form__title">Редактировать профиль</h2>
         <fieldset class="edit-form__user-info">
-          <input type="text" class="edit-form__placeholder" id="nameInput" placeholder="Имя" required>
-          <input type="text" class="edit-form__placeholder" id="jobInput" placeholder="Род деятельности" required>
+          <input type="text" class="edit-form__placeholder" name="nameInput" placeholder="Имя" minlength="2" maxlength="40">
+          <input type="text" class="edit-form__placeholder" name="jobInput" placeholder="Род деятельности" minlength="2" maxlength="200">
         </fieldset>
-        <fieldset class="edit-form__submit-button">
-          <input type="submit" class="edit-form__submit-button-text" value="Сохранить">
-        </fieldset>
+        <button class="edit-form__submit-button">Сохранить</button>
       </form>
     </div>
   </section>
   <section class="popup" id="popupAdd">
     <div class="popup__container">
       <button class="popup__close-icon" type="button"></button>
-      <form class="add-form" name="add-form">
+      <form class="add-form" name="addForm" novalidate>
         <h2 class="add-form__title">Новое место</h2>
         <fieldset class="add-form__place-info">
-          <input type="text" class="add-form__placeholder" id="placeInput" placeholder="Название" required>
-          <input type="url" class="add-form__placeholder" id="urlInput" placeholder="Ссылка на картинку" required>
+          <input type="text" class="add-form__placeholder" name="placeInput" placeholder="Название" minlength="2" maxlength="30">
+          <input type="url" class="add-form__placeholder" name="urlInput" placeholder="Ссылка на картинку">
         </fieldset>
-        <fieldset class="add-form__submit-button">
-          <input type="submit" class="add-form__submit-button-text" value="Создать">
-        </fieldset>
+        <button class="add-form__submit-button_disabled" disabled>Создать</button>
       </form>
     </div>
   </section>
   <section class="popup popup_dark-background" id="popupPhoto">
     <div class="popup__cont-img">
       <button class="popup__close-icon_img" type="button"></button>
-      <figure class="photo-form" id="photo-form">
+      <figure class="photo-form" id="photoForm">
         <img class="photo-form__img" alt="Фото достопримечательности" src="./images/element-elbrus.png">
         <figcaption class="photo-form__title">Эльбрус</figcaption>
       </figure>
+    </div>
+  </section>
+  <section class="popup" id="popupAvatar">
+    <div class="popup__container popup__container_small">
+      <button class="popup__close-icon" type="button"></button>
+      <form class="avatar-form" name="avatarForm" novalidate>
+        <h2 class="avatar-form__title">Обновить аватар</h2>
+        <fieldset class="avatar-form__img-info">
+          <input type="url" class="avatar-form__placeholder" name="urlAvatar" placeholder="Ссылка на аватар" required>
+        </fieldset>
+        <fieldset class="avatar-form__submit-button">
+          <input type="submit" class="avatar-form__submit-button-text" value="Сохранить">
+        </fieldset>
+      </form>
     </div>
   </section>
   <script src="./scripts/scripts.js"></script>

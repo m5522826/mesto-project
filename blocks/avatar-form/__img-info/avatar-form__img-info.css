@@ -1,0 +1,21 @@
+.avatar-form__img-info {
+  border: 0;
+  margin: 10% 0 3%;
+  padding: 0;
+}
+
+.avatar-form__img-info:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 400px) {
+  .avatar-form__img-info {
+    margin: 27% 0 3%;
+  }
+}
+
+@media screen and (min-width: 401px) and (max-width: 600px) {
+  .avatar-form__img-info {
+    margin: 0 auto;
+  }
+}

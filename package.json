@@ -1,0 +1,27 @@
+{
+  "name": "mesto-project",
+  "version": "1.0.0",
+  "description": "- Описание проекта\r - Используемые технологии\r - Ссылка на гитхаб проекта",
+  "main": "index.js",
+  "scripts": {
+    "build": "rd /s /q dist && webpack --mode production",
+    "dev": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m5522826/mesto-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/m5522826/mesto-project/issues"
+  },
+  "homepage": "https://github.com/m5522826/mesto-project#readme",
+  "dependencies": {
+    "jquery": "^3.6.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.10.1"
+  }
+}

@@ -1,0 +1,32 @@
+.avatar-form__submit-button-text {
+  border: 0;
+  margin: 4% auto;
+  padding: 0;
+  color: #fff;
+  background-color: black;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.avatar-form__submit-button-text:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1100px) {
+  .avatar-form__submit-button-text {
+    font-size: 14px;
+    line-height: 17px;
+    margin: 6% auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .avatar-form__submit-button-text {
+    margin: 13px auto;
+  }
+}

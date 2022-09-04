@@ -9,5 +9,5 @@
 }
 
 .element__button-img:hover {
-  cursor: url("./cursor.png"), pointer;
+  cursor: pointer;
 }

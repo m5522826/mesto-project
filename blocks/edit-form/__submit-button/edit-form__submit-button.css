@@ -5,11 +5,17 @@
   background-color: black;
   margin: 10% 0 0;
   padding: 0;
+  color: #fff;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
 }
 
 .edit-form__submit-button:hover {
   opacity: 0.9;
-  cursor: url("./cursor.png"), pointer;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 400px) {
@@ -17,6 +23,8 @@
     margin: 36px auto 0;
     height: 45px;
     width: 235px;
+    font-size: 14px;
+    line-height: 17px;
   }
 }
 
@@ -24,5 +32,7 @@
   .edit-form__submit-button {
     margin: 16% auto 0;
     height: 45px;
+    font-size: 14px;
+    line-height: 17px;
   }
 }

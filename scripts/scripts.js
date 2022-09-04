@@ -32,17 +32,25 @@ const element = document.querySelector('#element').content;
 const popupEdit = document.getElementById('popupEdit');
 const popupAdd = document.getElementById('popupAdd');
 const popupPhoto = document.getElementById('popupPhoto');
+const popupAvatar = document.getElementById('popupAvatar');
+const buttonAvatar = document.querySelector('.profile__avatar');
+const formElementAvatar = document.forms.avatarForm;
+const urlAvatar = formElementAvatar.elements.urlAvatar;
+const avatarFormImg = document.querySelector('.profile__avatar-img');
+
 const buttonAdd = document.querySelector('.profile__add-button');
 const buttonEdit = document.querySelector('.profile__edit-button');
-const formElementEdit = document.querySelector('.edit-form');
-const userNameInput = document.querySelector('#nameInput');
-const userJobInput = document.querySelector('#jobInput');
-const formElementAdd = document.querySelector('.add-form');
-const placeInput = document.querySelector('#placeInput');
-const urlInput = document.querySelector('#urlInput');
+const formElementEdit = document.forms.editForm;
+const userNameInput = formElementEdit.elements.nameInput;
+const userJobInput = formElementEdit.elements.jobInput;
+const formElementAdd = document.forms.addForm;
+const placeInput = formElementAdd.elements.placeInput;
+const urlInput = formElementAdd.elements.urlInput;
 const photoForm = document.querySelector('.photo-form');
 const photoFormImg =  photoForm.querySelector('.photo-form__img');
 const photoFormTitle = photoForm.querySelector('.photo-form__title');
+
+
 
 function newPlace(elementTitle, link){
   const placeElement = element.querySelector('.element').cloneNode(true); 
@@ -73,11 +81,6 @@ return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 function closePopup(popupType) {
-/* Касательно данной конструкции
-Она используется для плавного закрытия окна.
-Снчала происходит увеличение прозрачности при смене модификатора, и следующим этапом новый модификатор удаляется.
-В задании про необходимость использования ТОЛЬКО удаления ничего не сказано.
-*/
 popupType.classList.replace('popup_opened', 'popup_closed');
 sleep(500).then(() => {
   popupType.classList.remove('popup_closed'); 
@@ -93,12 +96,30 @@ function submitHandlerEditForm (evt) {
   profileName.textContent = userNameInput.value;
   profileWork.textContent = userJobInput.value;
   closePopup(popupEdit);
+  formElementEdit.reset();
 }
 
 function submitHandlerAddForm (evt) {
   evt.preventDefault(); 
   renderCard(newPlace(placeInput.value,urlInput.value)); 
   closePopup(popupAdd);
+  formElementAdd.reset();
+}
+
+
+
+
+
+
+
+
+
+
+function submitHandlerAvatarForm (evt) {
+  evt.preventDefault(); 
+  avatarFormImg.src = urlAvatar.value;
+  closePopup(popupAvatar);
+  form.reset();
 }
 
 function showPhoto(elementTitle, link) {
@@ -113,10 +134,12 @@ for (let i = 0; i < initialCards.length; i++) {
   }
 
 popupEdit.querySelector('.popup__close-icon').addEventListener('click', function(){closePopup(popupEdit)});
-popupAdd.querySelector('.popup__close-icon').addEventListener('click', function(){
-closePopup(popupAdd);
-});
+popupAdd.querySelector('.popup__close-icon').addEventListener('click', function(){closePopup(popupAdd)});
 popupPhoto.querySelector('.popup__close-icon_img').addEventListener('click', function(){closePopup(popupPhoto)});
+popupAvatar.querySelector('.popup__close-icon').addEventListener('click', function(){closePopup(popupAvatar)});
+
+document.querySelector('.popup_dark-background').addEventListener('click', function(){closePopup(popupPhoto)});
+
 buttonAdd.addEventListener('click', function(){
 urlInput.value = "";
 placeInput.value = "";
@@ -129,6 +152,60 @@ userJobInput.value = profileWork.textContent;
 openPopup(popupEdit);
 });
 
-formElementEdit.addEventListener('submit', submitHandlerEditForm);
+buttonAvatar.addEventListener('click', function(){
+  urlAvatar.value = "";
+  openPopup(popupAvatar);
+  });
 
+formElementEdit.addEventListener('submit', submitHandlerEditForm);
 formElementAdd.addEventListener('submit', submitHandlerAddForm);
+formElementAvatar.addEventListener('submit', submitHandlerAvatarForm);
+
+
+function escClose (evt) {
+  if (evt.key === 'Escape') {
+    closePopup(popupEdit);
+    closePopup(popupAdd);
+    closePopup(popupAvatar);
+    closePopup(popupPhoto);
+  }
+}
+
+document.addEventListener('keydown', escClose);
+
+
+
+const textInput = document.querySelector('input[type=text]');
+const editSubmit = document.querySelector('.edit-form__submit-button');
+const addSubmit = document.querySelector('.add-form__submit-button_disabled');
+
+
+function setEditSubmitButtonState (isFormValid) {
+  if (isFormValid) {
+    editSubmit.removeAttribute('disabled');
+    editSubmit.classList.remove('edit-form__submit-button_disabled'); 
+  } else {
+    editSubmit.setAttribute('disabled', true);
+    editSubmit.classList.add('edit-form__submit-button_disabled'); 
+  }
+}
+
+formElementEdit.addEventListener('input', function () {
+  const isValid = userNameInput.value.length > 1 && userJobInput.value.length > 1;
+  setEditSubmitButtonState(isValid);
+});
+
+function setAddSubmitButtonState (isFormValid) {
+  if (isFormValid) {
+    addSubmit.removeAttribute('disabled');
+    addSubmit.classList.add('add-form__submit-button'); 
+  } else {
+    addSubmit.setAttribute('disabled', true);
+    addSubmit.classList.remove('add-form__submit-button'); 
+  }
+}
+
+formElementAdd.addEventListener('input', function () {
+  const isValid = placeInput.value.length > 1 && urlInput.value.length > 0;
+  setAddSubmitButtonState(isValid);
+});

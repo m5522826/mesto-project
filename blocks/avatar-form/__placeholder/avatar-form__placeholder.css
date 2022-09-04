@@ -1,0 +1,39 @@
+.avatar-form__placeholder {
+  border: 0;
+  margin: 0 0 5%;
+  padding: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  width: 100%;
+  min-height: 40px;
+}
+
+.avatar-form__placeholder:focus {
+  outline: 3px solid rgba(8, 100, 221, 0.5);
+  border-radius: 1px;
+}
+
+.avatar-form__placeholder::placeholder {
+  color: rgba(0, 0, 0, 0.2);
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+@media screen and (max-width: 400px) {
+  .avatar-form__placeholder {
+    margin: 0 0 6%;
+  }
+}
+
+@media screen and (min-width: 401px) and (max-width: 600px) {
+  .avatar-form__placeholder {
+    margin: 8% 0 0;
+  }
+}
+
+.avatar-form__placeholder:invalid {
+  border-bottom: 1px solid red;
+}
