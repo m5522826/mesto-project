@@ -49,26 +49,30 @@
   <section class="popup" id="popupEdit">
     <div class="popup__container">
       <button class="popup__close-icon" type="button"></button>
-      <form class="edit-form" name="editForm" novalidate>
+      <form class="form edit-form" name="editForm" novalidate>
         <h2 class="edit-form__title">Редактировать профиль</h2>
         <fieldset class="edit-form__user-info">
-          <input type="text" class="edit-form__placeholder" name="nameInput" placeholder="Имя" minlength="2" maxlength="40">
-          <input type="text" class="edit-form__placeholder" name="jobInput" placeholder="Род деятельности" minlength="2" maxlength="200">
+          <input id="edit-form-name" type="text" class="form-input edit-form__placeholder" pattern="^[a-zA-Zа-яёА-ЯЁ \-]+$" name="nameInput" placeholder="Имя" minlength="2" maxlength="40" required>
+          <span class="edit-form-name-error error-text"></span>
+          <input id="edit-form-job" type="text" class="form-input edit-form__placeholder" pattern="^[a-zA-Zа-яёА-ЯЁ \-]+$" name="jobInput" placeholder="Род деятельности" minlength="2" maxlength="200" required>
+          <span class="edit-form-job-error error-text"></span>
         </fieldset>
-        <button class="edit-form__submit-button">Сохранить</button>
+        <button class="button edit-form__submit-button">Сохранить</button>
       </form>
     </div>
   </section>
   <section class="popup" id="popupAdd">
     <div class="popup__container">
       <button class="popup__close-icon" type="button"></button>
-      <form class="add-form" name="addForm" novalidate>
+      <form class="form add-form" name="addForm" novalidate>
         <h2 class="add-form__title">Новое место</h2>
         <fieldset class="add-form__place-info">
-          <input type="text" class="add-form__placeholder" name="placeInput" placeholder="Название" minlength="2" maxlength="30">
-          <input type="url" class="add-form__placeholder" name="urlInput" placeholder="Ссылка на картинку">
+          <input id="add-form-name" type="text" class="form-input add-form__placeholder" pattern="^[a-zA-Zа-яёА-ЯЁ \-]+$" name="placeInput" placeholder="Название" minlength="2" maxlength="30" required>
+          <span class="add-form-name-error error-text"></span>
+          <input id="add-form-url" type="url" class="form-input add-form__placeholder" name="urlInput" placeholder="Ссылка на картинку" required>
+          <span class="add-form-url-error error-text"></span>
         </fieldset>
-        <button class="add-form__submit-button_disabled" disabled>Создать</button>
+        <button class="button add-form__submit-button" disabled>Создать</button>
       </form>
     </div>
   </section>
@@ -84,17 +88,21 @@
   <section class="popup" id="popupAvatar">
     <div class="popup__container popup__container_small">
       <button class="popup__close-icon" type="button"></button>
-      <form class="avatar-form" name="avatarForm" novalidate>
+      <form class="form avatar-form" name="avatarForm" novalidate>
         <h2 class="avatar-form__title">Обновить аватар</h2>
         <fieldset class="avatar-form__img-info">
-          <input type="url" class="avatar-form__placeholder" name="urlAvatar" placeholder="Ссылка на аватар" required>
+          <input id="avatar-form-url" type="url" class="form-input avatar-form__placeholder" name="urlAvatar" placeholder="Ссылка на аватар" required>
+          <span class="avatar-form-url-error error-text"></span>
         </fieldset>
-        <fieldset class="avatar-form__submit-button">
-          <input type="submit" class="avatar-form__submit-button-text" value="Сохранить">
-        </fieldset>
+        <button class="button avatar-form__submit-button " disabled>Создать</button>
       </form>
     </div>
   </section>
-  <script src="./scripts/scripts.js"></script>
+  <!-- <script type="module" src="utils.js"></script>
+  <script type="module" src="index.js"></script>
+  <script type="module" src="card.js"></script>
+  <script type="module" src="modal.js"></script>
+  <script type="module" src="validate.js"></script> -->
+ <script src="./scripts/scripts.js"></script>
 </body>
 </html>

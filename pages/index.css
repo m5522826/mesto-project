@@ -66,3 +66,6 @@
 @import url(../blocks/avatar-form/__submit-button-text/avatar-form__submit-button-text.css);
 @import url(../blocks/avatar-form/__submit-button/avatar-form__submit-button.css);
 @import url(../blocks/avatar-form/__title/avatar-form__title.css);
+
+@import url(../blocks/error-text/error-text.css);
+@import url(../blocks/button_disabled/button_disabled.css);
