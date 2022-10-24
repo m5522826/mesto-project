@@ -25,160 +25,72 @@ const initialCards = [
   }
   ];
 
-const profileName = document.querySelector('.profile__name');
-const profileWork = document.querySelector('.profile__description');
-const cardsContainer = document.querySelector('.elements');
-const element = document.querySelector('#element').content;
-const popupEdit = document.getElementById('popupEdit');
-const popupAdd = document.getElementById('popupAdd');
-// add form input select
-const formEdit =  document.querySelector('.edit-form');
-//const formPlaceEdit =  popupEdit.querySelector('edit-form-place');
 
-const popupPhoto = document.getElementById('popupPhoto');
-const popupAvatar = document.getElementById('popupAvatar');
-const buttonAvatar = document.querySelector('.profile__avatar');
-const formElementAvatar = document.forms.avatarForm;
-const urlAvatar = formElementAvatar.elements.urlAvatar;
+/// const ///
+
+const addButton = document.querySelector('.profile__add-button');
+const editButton = document.querySelector('.profile__edit-button');
+const avatarButton = document.querySelector('.profile__avatar');
+
+const popups = document.querySelectorAll('.popup');
+const popupEdit = document.querySelector('#popupEdit');
+const popupAdd = document.querySelector('#popupAdd');
+const popupPhoto = document.querySelector('#popupPhoto');
+const popupAvatar = document.querySelector('#popupAvatar');
+
+const imgPopupPhoto = popupPhoto.querySelector('.photo-form__img');
+const titlePopupPhoto = popupPhoto.querySelector('.photo-form__title');
+
+const profile = document.querySelector('.profile');
+const profileName = profile.querySelector('.profile__name');
+const profileDescription = profile.querySelector('.profile__description');
 const avatarFormImg = document.querySelector('.profile__avatar-img');
 
-const buttonAdd = document.querySelector('.profile__add-button');
-const buttonEdit = document.querySelector('.profile__edit-button');
 const formElementEdit = document.forms.editForm;
 const userNameInput = formElementEdit.elements.nameInput;
 const userJobInput = formElementEdit.elements.jobInput;
-const formElementAdd = document.forms.addForm;
-// add input constants
-const formElementEditInputName = formElementEdit.querySelector('#edit-form-name');
-const formElementEditInputJob = formElementEdit.querySelector('#edit-form-job');
-const formElementAddInputName = formElementAdd.querySelector('#add-form-name');
-const formElementAddInputUrl = formElementAdd.querySelector('#add-form-url');
-const formElementEditInputNameError = formElementEdit.querySelector(`.${formElementEditInputName.id}-error`);
-const formElementEditInputJobError = formElementEdit.querySelector(`.${formElementEditInputJob.id}-error`);
 
+const formElementAdd = document.forms.addForm;
 const placeInput = formElementAdd.elements.placeInput;
 const urlInput = formElementAdd.elements.urlInput;
-const photoForm = document.querySelector('.photo-form');
-const photoFormImg =  photoForm.querySelector('.photo-form__img');
-const photoFormTitle = photoForm.querySelector('.photo-form__title');
-const buttonAvatarCreate = document.querySelector('.avatar-form__submit-button');
-const buttonAddCreate = document.querySelector('.add-form__submit-button');
 
 
+const formElementAvatar = document.forms.avatarForm;
+const urlAvatar = formElementAvatar.elements.urlAvatar;
 
-function newPlace(elementTitle, link){
-  const placeElement = element.querySelector('.element').cloneNode(true); 
-  const placeElementPhoto = placeElement.querySelector('.element__photo');
-  const placeElementLike = placeElement.querySelector('.element__like');
-  const placeElementButtonImage = placeElement.querySelector('.element__button-img');
-  placeElementPhoto.src = link;
-  placeElementPhoto.alt = elementTitle;
-  placeElement.querySelector('.element__title').textContent = elementTitle;
-  placeElement.querySelector('.element__trash').addEventListener('click', function () {
-      placeElement.remove();
-  });
-  placeElementLike.addEventListener('click', function () {
-    placeElementLike.classList.toggle('element__like_active');
-  });
-  placeElementButtonImage.addEventListener('click', function () {
-    showPhoto(elementTitle,link);
-  });
-  return placeElement;
-} 
+const cardTemplate = document.querySelector('#element').content;
+const cardContainer = document.querySelector('.elements');
 
-function renderCard(card){
-cardsContainer.prepend(card);
-}
 
-function sleep(ms) {
-return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-function closePopup(popupType) {
-popupType.classList.replace('popup_opened', 'popup_closed');
-sleep(500).then(() => {
-  popupType.classList.remove('popup_closed'); 
-  });
-}
+/// попапы ///
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-} 
-
-function submitHandlerEditForm (evt) {
-  evt.preventDefault(); 
-  profileName.textContent = userNameInput.value;
-  profileWork.textContent = userJobInput.value;
-  closePopup(popupEdit);
-  formElementEdit.reset();
 }
 
-function submitHandlerAddForm (evt) {
-  evt.preventDefault(); 
-  renderCard(newPlace(placeInput.value,urlInput.value)); 
-  closePopup(popupAdd);
-  formElementAdd.reset();
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
 }
 
+editButton.addEventListener('click', evt => {
+  userNameInput.value = profileName.textContent;
+  userJobInput.value = profileDescription.textContent;
+  openPopup(popupEdit);
+})
 
+addButton.addEventListener('click', evt => {
+  openPopup(popupAdd);
+})
 
-
-
-
-
-
-
-
-function submitHandlerAvatarForm (evt) {
-  evt.preventDefault(); 
-  avatarFormImg.src = urlAvatar.value;
-  closePopup(popupAvatar);
-  form.reset();
-}
-
-function showPhoto(elementTitle, link) {
-photoFormImg.alt = elementTitle;
-photoFormImg.src = link;
-photoFormTitle.textContent = elementTitle;
-openPopup(popupPhoto);
-}
-
-for (let i = 0; i < initialCards.length; i++) { 
-  renderCard(newPlace(initialCards[i].name,initialCards[i].link));
-  }
-
-popupEdit.querySelector('.popup__close-icon').addEventListener('click', function(){closePopup(popupEdit)});
-popupAdd.querySelector('.popup__close-icon').addEventListener('click', function(){closePopup(popupAdd)});
-popupPhoto.querySelector('.popup__close-icon_img').addEventListener('click', function(){closePopup(popupPhoto)});
-popupAvatar.querySelector('.popup__close-icon').addEventListener('click', function(){closePopup(popupAvatar)});
-
-document.querySelector('.popup_dark-background').addEventListener('click', function(){closePopup(popupPhoto)});
-
-buttonAdd.addEventListener('click', function(){
-urlInput.value = "";
-placeInput.value = "";
-buttonAddCreate.classList.add('button_disabled');
-buttonAddCreate.setAttribute('disabled', true);
-openPopup(popupAdd);
-});
-
-buttonEdit.addEventListener('click', function(){
-userNameInput.value = profileName.textContent;
-userJobInput.value = profileWork.textContent;
-openPopup(popupEdit);
-});
-
-buttonAvatar.addEventListener('click', function(){
-  urlAvatar.value = "";
-  buttonAvatarCreate.classList.add('button_disabled');
-  buttonAvatarCreate.setAttribute('disabled', true);
+avatarButton.addEventListener('click', evt => {
   openPopup(popupAvatar);
-  });
+})
 
-formElementEdit.addEventListener('submit', submitHandlerEditForm);
-formElementAdd.addEventListener('submit', submitHandlerAddForm);
-formElementAvatar.addEventListener('submit', submitHandlerAvatarForm);
-
+popups.forEach (popup => {
+  popup.addEventListener('click', evt => {
+    evt.target.classList.contains('popup__close-icon') ? closePopup(popup) : false;
+  })
+})
 
 function escClose (evt) {
   if (evt.key === 'Escape') {
@@ -192,6 +104,74 @@ function escClose (evt) {
 document.addEventListener('keydown', escClose);
 
 
+/// работа с карточками ///
+
+function openCardPopup(element) {
+  imgPopupPhoto.src = element.src;
+  imgPopupPhoto.alt = element.alt;
+  titlePopupPhoto.textContent = element.alt;
+  openPopup(popupPhoto);
+}
+
+function deleteCard(cardElement) {
+  cardElement.remove();
+}
+
+function addCard(name, link) {
+  const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
+  const cardImage = cardElement.querySelector('.element__photo');
+  cardImage.src = link;
+  cardImage.alt = name;
+  cardImage.addEventListener('click', evt => {
+    openCardPopup(cardImage);
+  });
+  cardElement.querySelector('.element__title').textContent = name;
+  cardElement.querySelector('.element__like').addEventListener('click', evt => {
+    evt.target.classList.toggle('element__like_active');
+  });
+  cardElement.querySelector('.element__trash').addEventListener('click', evt => {
+    deleteCard(cardElement);
+  });
+  return cardElement;
+}
+
+initialCards.forEach (card => {
+  const newCard = addCard(card.name, card.link);
+  cardContainer.prepend(newCard);
+})
+
+
+/// работа с кнопками сабмит ///
+
+function editProfile (evt) {
+  evt.preventDefault();
+  profileName.textContent = userNameInput.value;
+  profileDescription.textContent = userJobInput.value;
+  closePopup(popupEdit);
+}
+
+function addNewCard(evt) {
+  evt.preventDefault();
+  const newCard = addCard(placeInput.value, urlInput.value);
+  cardContainer.prepend(newCard);
+  placeInput.value = "";
+  urlInput.value = "";
+  closePopup(popupAdd);
+}
+
+function addNewAvatar (evt) {
+  evt.preventDefault();
+  avatarFormImg.src = urlAvatar.value;
+  closePopup(popupAvatar);
+  formElementAvatar.reset();
+}
+
+formElementEdit.addEventListener('submit', editProfile);
+formElementAdd.addEventListener('submit', addNewCard);
+formElementAvatar.addEventListener('submit', addNewAvatar);
+
+
+/// валидация ///
 
 function EnableValidation() {
   const allForms =  Array.from(document.querySelectorAll('.form'));
@@ -209,14 +189,14 @@ function setEventListeners(formElement) {
   inputList.forEach((inputElement) => {
     const inputElementError = formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.addEventListener('input', () => {
-      isValid(inputElement, inputElementError, buttonElement, formElement )
+      isValid(inputElement, inputElementError, buttonElement, formElement)
     }); 
   });
 }; 
 
-const isValid = (inputElement, inputElementError, buttonElement, formElement ) => {
+const isValid = (inputElement, inputElementError, buttonElement, formElement) => {
   if (inputElement.validity.patternMismatch) {
-    inputElement.setCustomValidity("Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы");
+    inputElement.setCustomValidity("Разрешены только латинские и кириллические буквы, знаки дефиса и пробелы");
   } else {
     inputElement.setCustomValidity("");
   }
@@ -231,10 +211,9 @@ const isValid = (inputElement, inputElementError, buttonElement, formElement ) =
   }
 
   if (!inputElement.validity.valid) {
-    // Если поле не проходит валидацию, покажем ошибку
     showInputError(inputElement, inputElementError, inputElement.validationMessage);
+    
   } else {
-    // Если проходит, скроем
     hideInputError(inputElement, inputElementError);
   }
 };
@@ -261,44 +240,5 @@ const hideInputError = (element, inputElementError) => {
   inputElementError.setAttribute("hidden", "hidden");
   inputElementError.textContent = '';
 };
-
-
-//function setEditSubmitButtonState (isFormValid) {
-//  if (isFormValid) {
-//    editSubmit.removeAttribute('disabled');
-//    editSubmit.classList.remove('edit-form__submit-button_disabled'); 
-//  } else {
-//    editSubmit.setAttribute('disabled', true);
-//    editSubmit.classList.add('edit-form__submit-button_disabled'); 
-//  }
-//}
-
-//formElementEditInputName.addEventListener('input', function (evt) {
-  //isValid();
-  //const isValid = userNameInput.value.length > 1 && userJobInput.value.length > 1;
-  //setEditSubmitButtonState(isValid);
-//});
-
-//formElementEditInputJob.addEventListener('input', function (evt) {
-  //console.log(evt.target.validity.valid)
-  //const isValid = userNameInput.value.length > 1 && userJobInput.value.length > 1;
-  //setEditSubmitButtonState(isValid);
-//});
-
-//function setAddSubmitButtonState (isFormValid) {
-//  if (isFormValid) {
-//    addSubmit.removeAttribute('disabled');
-//    addSubmit.classList.add('add-form__submit-button'); 
-//  } else {
-//    addSubmit.setAttribute('disabled', true);
-//    addSubmit.classList.remove('add-form__submit-button'); 
-//  }
-//}
-
-//formElementAdd.addEventListener('input', function () {
-  //console.log(evt.target.validity.valid)
-  //const isValid = placeInput.value.length > 1 && urlInput.value.length > 0;
-  //setAddSubmitButtonState(isValid);
-//});
 
 EnableValidation();

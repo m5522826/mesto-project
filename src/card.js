@@ -1,60 +1,65 @@
-import { cardsContainer, placeInput, urlInput, popupAdd, formElementAdd } from './index.js';
-import { closePopup } from './utils.js';
+import { imgPopupPhoto, titlePopupPhoto, popupPhoto, cardTemplate, cardContainer  } from './index.js';
+import { openPopup } from './utils.js';
+
+const Arhiz = 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg';
+const Chelyab = 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg';
+const Ivanovo = 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg';
+const Kamchatka = 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg';
+const Holmogorsk = 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg';
+const Baikal = 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg';
 
 export const initialCards = [
     {
       name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+      link: Arhiz
     },
     {
       name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+      link: Chelyab
     },
     {
       name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+      link: Ivanovo
     },
     {
       name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+      link: Kamchatka
     },
     {
       name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+      link: Holmogorsk
     },
     {
       name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+      link: Baikal
     }
 ];
 
-export function newPlace(elementTitle, link){
-    const placeElement = element.querySelector('.element').cloneNode(true); 
-    const placeElementPhoto = placeElement.querySelector('.element__photo');
-    const placeElementLike = placeElement.querySelector('.element__like');
-    const placeElementButtonImage = placeElement.querySelector('.element__button-img');
-    placeElementPhoto.src = link;
-    placeElementPhoto.alt = elementTitle;
-    placeElement.querySelector('.element__title').textContent = elementTitle;
-    placeElement.querySelector('.element__trash').addEventListener('click', function () {
-         placeElement.remove();
-    });
-    placeElementLike.addEventListener('click', function () {
-        placeElementLike.classList.toggle('element__like_active');
-    });
-    placeElementButtonImage.addEventListener('click', function () {
-      showPhoto(elementTitle,link);
-     });
-    return placeElement;
-} 
-      
-export function renderCard(card){
-    cardsContainer.prepend(card);
+export function openCardPopup(element) {
+  imgPopupPhoto.src = element.src;
+  imgPopupPhoto.alt = element.alt;
+  titlePopupPhoto.textContent = element.alt;
+  openPopup(popupPhoto);
 }
 
-export function submitHandlerAddForm (evt) {
-    evt.preventDefault(); 
-    renderCard(newPlace(placeInput.value,urlInput.value)); 
-    closePopup(popupAdd);
-    formElementAdd.reset();
+export function deleteCard(cardElement) {
+  cardElement.remove();
+}
+
+export function addCard(name, link) {
+  const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
+  const cardImage = cardElement.querySelector('.element__photo');
+  cardImage.src = link;
+  cardImage.alt = name;
+  cardImage.addEventListener('click', evt => {
+    openCardPopup(cardImage);
+  });
+  cardElement.querySelector('.element__title').textContent = name;
+  cardElement.querySelector('.element__like').addEventListener('click', evt => {
+    evt.target.classList.toggle('element__like_active');
+  });
+  cardElement.querySelector('.element__trash').addEventListener('click', evt => {
+    deleteCard(cardElement);
+  });
+  return cardElement;
 }

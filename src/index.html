@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Путешествие по&nbsp;России</title>
+  <meta name="description" content="Интерактивный сервис с галереей фотографий путешествий">
+  <meta name="keywords" content="Путешествия, Фотографии, Галерея">
+  <meta name="author" content="Маргарита Алексеева">
+</head>
+<body class="page">
+  <header class="header">
+    <img alt="Логотип проекта Место" class="header__logo" src="<%=require('./images/Mesto-logo.svg')%>"> 
+  </header>
+  <main class="content">
+    <section class="profile">
+      <div class="profile__avatar">
+        <div class="profile__avatar_overlay"></div>
+        <img class="profile__avatar-img" src="<%=require('./images/profile-photo.png')%>" alt="Аватар пользователя">
+      </div>
+      <div class="profile__info">
+        <div class="profile__info-box">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <button class="profile__edit-button" type="button"></button>
+        </div>
+        <p class="profile__description">Исследователь океана</p>
+      </div>
+      <button class="profile__add-button" type="button"></button>
+    </section>
+    <section>
+      <ul class="elements">
+      </ul>
+    </section>
+    <template id="element">
+      <li class="element" id="myelement" >
+        <button class="element__trash" type="button"></button>
+        <button class="element__button-img" type="button"><img class="element__photo" src="${link}" alt="${elementTitle}"></button>
+          <div class="element__title-box">
+            <h2 class="element__title">${elementTitle}</h2>
+            <button class="element__like" type="button"></button>
+         </div>
+      </li>
+    </template>
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
+  </footer>
+  <section class="popup popup_background" id="popupEdit">
+    <div class="popup__container">
+      <button class="popup__close-icon" type="button"></button>
+      <form class="form edit-form" name="editForm" novalidate>
+        <h2 class="edit-form__title">Редактировать профиль</h2>
+        <fieldset class="edit-form__user-info">
+          <input id="edit-form-name" type="text" class="form-input edit-form__placeholder" pattern="^[a-zA-Zа-яёА-ЯЁ \-]+$" name="nameInput" placeholder="Имя" minlength="2" maxlength="40" required>
+          <span class="edit-form-name-error error-text"></span>
+          <input id="edit-form-job" type="text" class="form-input edit-form__placeholder" pattern="^[a-zA-Zа-яёА-ЯЁ \-]+$" name="jobInput" placeholder="Род деятельности" minlength="2" maxlength="200" required>
+          <span class="edit-form-job-error error-text"></span>
+        </fieldset>
+        <button class="button edit-form__submit-button">Сохранить</button>
+      </form>
+    </div>
+  </section>
+  <section class="popup popup_background" id="popupAdd">
+    <div class="popup__container">
+      <button class="popup__close-icon" type="button"></button>
+      <form class="form add-form" name="addForm" novalidate>
+        <h2 class="add-form__title">Новое место</h2>
+        <fieldset class="add-form__place-info">
+          <input id="add-form-name" type="text" class="form-input add-form__placeholder" pattern="^[a-zA-Zа-яёА-ЯЁ \-]+$" name="placeInput" placeholder="Название" minlength="2" maxlength="30" required>
+          <span class="add-form-name-error error-text"></span>
+          <input id="add-form-url" type="url" class="form-input add-form__placeholder" name="urlInput" placeholder="Ссылка на картинку" required>
+          <span class="add-form-url-error error-text"></span>
+        </fieldset>
+        <button class="button add-form__submit-button button_disabled" disabled>Создать</button>
+      </form>
+    </div>
+  </section>
+  <section class="popup popup_dark-background popup_background" id="popupPhoto">
+    <div class="popup__cont-img">
+      <button class="popup__close-icon popup__close-icon_img" type="button"></button>
+      <figure class="photo-form" id="photoForm">
+        <img class="photo-form__img" alt="Фото достопримечательности" src="<%=require('./images/element-elbrus.png')%>">
+        <figcaption class="photo-form__title">Эльбрус</figcaption>
+      </figure>
+    </div>
+  </section>
+  <section class="popup popup_background" id="popupAvatar">
+    <div class="popup__container popup__container_small">
+      <button class="popup__close-icon" type="button"></button>
+      <form class="form avatar-form" name="avatarForm" novalidate>
+        <h2 class="avatar-form__title">Обновить аватар</h2>
+        <fieldset class="avatar-form__img-info">
+          <input id="avatar-form-url" type="url" class="form-input avatar-form__placeholder" name="urlAvatar" placeholder="Ссылка на аватар" required>
+          <span class="avatar-form-url-error error-text"></span>
+        </fieldset>
+        <button class="button avatar-form__submit-button button_disabled" disabled>Создать</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>
