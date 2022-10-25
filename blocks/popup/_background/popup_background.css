@@ -1,0 +1,10 @@
+.popup_background::before {
+    cursor: pointer;
+  }
+
+.popup_background {
+    display: flex;
+    align-self: center;
+    margin: auto;
+    justify-content: center;
+}

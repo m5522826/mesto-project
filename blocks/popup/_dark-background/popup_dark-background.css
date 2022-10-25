@@ -1,5 +1,6 @@
 .popup_dark-background::before {
   opacity: 0.9;
+  cursor: pointer;
 }
 
 .popup_dark-background {
