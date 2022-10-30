@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <!-- <link rel="stylesheet" href="./index.css"> -->
+
   <title>Путешествие по&nbsp;России</title>
   <meta name="description" content="Интерактивный сервис с галереей фотографий путешествий">
   <meta name="keywords" content="Путешествия, Фотографии, Галерея">
@@ -10,13 +13,13 @@
 </head>
 <body class="page">
   <header class="header">
-    <img alt="Логотип проекта Место" class="header__logo" src="<%=require('./images/Mesto-logo.svg')%>"> 
+    <img alt="Логотип проекта Место" class="header__logo" src="<%=require('../components/images/Mesto-logo.svg')%>"> 
   </header>
   <main class="content">
     <section class="profile">
       <div class="profile__avatar">
         <div class="profile__avatar_overlay"></div>
-        <img class="profile__avatar-img" src="<%=require('./images/profile-photo.png')%>" alt="Аватар пользователя">
+        <img class="profile__avatar-img" src="<%=require('../components/images/profile-photo.png')%>" alt="Аватар пользователя">
       </div>
       <div class="profile__info">
         <div class="profile__info-box">
@@ -51,9 +54,9 @@
       <form class="form edit-form" name="editForm" novalidate>
         <h2 class="edit-form__title">Редактировать профиль</h2>
         <fieldset class="edit-form__user-info">
-          <input id="edit-form-name" type="text" class="form-input edit-form__placeholder" pattern="^[a-zA-Zа-яёА-ЯЁ \-]+$" name="nameInput" placeholder="Имя" minlength="2" maxlength="40" required>
+          <input id="edit-form-name" type="text" class="form-input edit-form__placeholder" pattern="^[a-zA-Zа-яёА-ЯЁ \-]+$" data-error-message="Разрешены только латинские и кириллические буквы, знаки дефиса и пробелы" name="nameInput" placeholder="Имя" minlength="2" maxlength="40" required>
           <span class="edit-form-name-error error-text"></span>
-          <input id="edit-form-job" type="text" class="form-input edit-form__placeholder" pattern="^[a-zA-Zа-яёА-ЯЁ \-]+$" name="jobInput" placeholder="Род деятельности" minlength="2" maxlength="200" required>
+          <input id="edit-form-job" type="text" class="form-input edit-form__placeholder" pattern="^[a-zA-Zа-яёА-ЯЁ \-]+$" data-error-message="Разрешены только латинские и кириллические буквы, знаки дефиса и пробелы" name="jobInput" placeholder="Род деятельности" minlength="2" maxlength="200" required>
           <span class="edit-form-job-error error-text"></span>
         </fieldset>
         <button class="button edit-form__submit-button">Сохранить</button>
@@ -66,7 +69,7 @@
       <form class="form add-form" name="addForm" novalidate>
         <h2 class="add-form__title">Новое место</h2>
         <fieldset class="add-form__place-info">
-          <input id="add-form-name" type="text" class="form-input add-form__placeholder" pattern="^[a-zA-Zа-яёА-ЯЁ \-]+$" name="placeInput" placeholder="Название" minlength="2" maxlength="30" required>
+          <input id="add-form-name" type="text" class="form-input add-form__placeholder" pattern="^[a-zA-Zа-яёА-ЯЁ \-]+$" name="placeInput" data-error-message="Разрешены только латинские и кириллические буквы, знаки дефиса и пробелы" placeholder="Название" minlength="2" maxlength="30" required>
           <span class="add-form-name-error error-text"></span>
           <input id="add-form-url" type="url" class="form-input add-form__placeholder" name="urlInput" placeholder="Ссылка на картинку" required>
           <span class="add-form-url-error error-text"></span>
@@ -79,7 +82,7 @@
     <div class="popup__cont-img">
       <button class="popup__close-icon popup__close-icon_img" type="button"></button>
       <figure class="photo-form" id="photoForm">
-        <img class="photo-form__img" alt="Фото достопримечательности" src="<%=require('./images/element-elbrus.png')%>">
+        <img class="photo-form__img" alt="Фото достопримечательности" src="<%=require('../components/images/element-elbrus.png')%>">
         <figcaption class="photo-form__title">Эльбрус</figcaption>
       </figure>
     </div>
@@ -97,5 +100,12 @@
       </form>
     </div>
   </section>
+
+  <!-- <script src="../components/utils.js"></script>
+  <script src="../components/index.js"></script>
+  <script src="../components/card.js"></script>
+  <script src="../components/modal.js"></script>
+  <script src="../components/validate.js"></script> -->
+
 </body>
 </html>
