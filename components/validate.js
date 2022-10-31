@@ -21,7 +21,7 @@ export function enableValidation(settings){
   });
 }
 
-export function hideValidation(settings){
+export function hideValidationErrors(settings){
   settings.inputSelector.forEach((inputElement) => {
     const inputElementError = settings.formSelector.querySelector(`.${inputElement.id}-error`);
       hideInputError(inputElement, inputElementError, settings.errorClass);

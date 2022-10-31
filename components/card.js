@@ -1,17 +1,5 @@
-import { imgPopupPhoto, titlePopupPhoto, popupPhoto, cardTemplate  } from './utils.js';
-import { openPopup, clickClosePopup } from './modal.js';
-
-export function openCardPopup(element) {
-  imgPopupPhoto.src = element.src;
-  imgPopupPhoto.alt = element.alt;
-  titlePopupPhoto.textContent = element.alt;
-  openPopup(popupPhoto);
-  clickClosePopup(popupPhoto);
-}
-
-export function deleteCard(cardElement) {
-  cardElement.remove();
-}
+import { cardTemplate } from './utils.js';
+import { openCardPopup } from './modal.js';
 
 export function addCard(name, link) {
   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
