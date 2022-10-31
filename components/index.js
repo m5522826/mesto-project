@@ -2,9 +2,9 @@ import '../pages/index.css';
 
 import { initialCards, addButton, editButton, avatarButton, popupEdit, popupAdd, popupAvatar, 
   profileName, profileDescription, avatarFormImg, formElementEdit, userNameInput, userJobInput, formElementAdd, placeInput, urlInput, 
-  formElementAvatar, urlAvatar, cardContainer } from './utils.js';
+  formElementAvatar, urlAvatar, cardContainer, popupPhoto } from './utils.js';
 
-import { enableValidation, toggleSubmitButton, createValidationSetting, hideValidation } from './validate.js';
+import { enableValidation, toggleSubmitButton, createValidationSetting, hideValidationErrors } from './validate.js';
 import { addCard } from './card.js';
 import { closePopup, openPopup, clickClosePopup } from './modal.js';
 
@@ -20,8 +20,6 @@ function addNewCard(evt) {
     evt.preventDefault();
     const newCard = addCard(placeInput.value, urlInput.value);
     cardContainer.prepend(newCard);
-    placeInput.value = "";
-    urlInput.value = "";
     closePopup(popupAdd);
     formElementAdd.reset();
   }
@@ -38,33 +36,35 @@ editButton.addEventListener('click', evt => {
   userJobInput.value = profileDescription.textContent;
   openPopup(popupEdit);
   const validationSettings = createValidationSetting(popupEdit);
-  hideValidation(validationSettings);
+  hideValidationErrors(validationSettings);
   enableValidation(validationSettings);
   toggleSubmitButton(validationSettings.submitButtonSelector,validationSettings.inputSelector,validationSettings.inactiveButtonClass);
-  clickClosePopup(popupEdit);
 })
   
 addButton.addEventListener('click', evt => {
   openPopup(popupAdd);
   const validationSettings = createValidationSetting(popupAdd);
-  hideValidation(validationSettings);
+  hideValidationErrors(validationSettings);
   enableValidation(validationSettings);
   toggleSubmitButton(validationSettings.submitButtonSelector,validationSettings.inputSelector,validationSettings.inactiveButtonClass);
-  clickClosePopup(popupAdd);
 })
   
 avatarButton.addEventListener('click', evt => {
   openPopup(popupAvatar);
   const validationSettings = createValidationSetting(popupAvatar);
-  hideValidation(validationSettings);
+  hideValidationErrors(validationSettings);
   enableValidation(validationSettings);
   toggleSubmitButton(validationSettings.submitButtonSelector,validationSettings.inputSelector,validationSettings.inactiveButtonClass);
-  clickClosePopup(popupAvatar);
 })
 
 formElementEdit.addEventListener('submit', editProfile);
 formElementAdd.addEventListener('submit', addNewCard);
 formElementAvatar.addEventListener('submit', addNewAvatar);
+
+clickClosePopup(popupEdit);
+clickClosePopup(popupAdd);
+clickClosePopup(popupAvatar);
+clickClosePopup(popupPhoto);
 
 initialCards.forEach (card => {
   const newCard = addCard(card.name, card.link);

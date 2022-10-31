@@ -1,3 +1,5 @@
+import { imgPopupPhoto, titlePopupPhoto, popupPhoto  } from './utils.js';
+
 export function openPopup(popup) {
   popup.classList.add('popup_opened');
 }
@@ -19,3 +21,14 @@ export function clickClosePopup(popup) {
     };
   });
 };
+
+export function openCardPopup(element) {
+  imgPopupPhoto.src = element.src;
+  imgPopupPhoto.alt = element.alt;
+  titlePopupPhoto.textContent = element.alt;
+  openPopup(popupPhoto);
+}
+
+export function deleteCard(cardElement) {
+  cardElement.remove();
+}
