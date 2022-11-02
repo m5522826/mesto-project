@@ -11,23 +11,11 @@ export function enableValidation(settings){
         toggleSubmitButton(buttonSelector,inputList,settings.inactiveButtonClass);
       });
     });
-    const popupClosest = formElement.closest(settings.popupSelector);
-    popupClosest .addEventListener('click', evt => {
-      toggleSubmitButton(buttonSelector,inputList,settings.inactiveButtonClass);
-      hideAllInputError(settings, formElement);
-    });
-    popupClosest .addEventListener('keydown', evt => {
-      if (evt.key === 'Escape') {
-        toggleSubmitButton(buttonSelector,inputList,settings.inactiveButtonClass);
-        hideAllInputError(settings, formElement);
-      };
-    });
     toggleSubmitButton(buttonSelector,inputList,settings.inactiveButtonClass);
   });
 }
 
 export function hideAllInputError(settings, formIntance){
- // const formIntance = popup.querySelector(settings.formSelector);
   const inputList = Array.from(formIntance.querySelectorAll(settings.inputSelector));
   inputList.forEach((inputElement) => {
     const inputElementError = formIntance.querySelector(`.${inputElement.id}-error`);
@@ -55,7 +43,6 @@ export const checkButtonStatus = (inputSelector) => {
   }
   return test;
 };
-
 
 export const toggleCustomValidate = (inputElement) => {
   if (inputElement.validity.patternMismatch) {
