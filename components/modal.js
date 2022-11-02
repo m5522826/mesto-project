@@ -7,12 +7,6 @@ export function openPopup(popup) {
 
 export function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  popup.addEventListener('click', evt => {
-    evt.target.classList.contains('popup__close-icon') ? popup.classList.remove('popup_opened') : false;
-  });
-  popup.addEventListener('click', evt => {
-    evt.target.classList.contains('popup_background') ? popup.classList.remove('popup_opened') : false;
-  });
   document.removeEventListener('keydown', escClose);
 }
 
@@ -28,10 +22,12 @@ export function deleteCard(cardElement) {
 }
 
 function escClose(evt) {
-  evt.preventDefault();
   if (evt.key === 'Escape') {
   const popups = Array.from(this.querySelectorAll('.popup'));
   popups.forEach((popup) => {
+// If, определющий открытый попап находится строкой ниже.
+// Закрытие popup'а распространяется только на открытый в данный момент popup.
+// 2 popup'а одновременно в проекте открыты быть не могут.
     if (popup.classList.contains('popup_opened')) {
       closePopup(popup);
     };

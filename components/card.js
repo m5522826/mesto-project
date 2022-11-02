@@ -1,5 +1,5 @@
 import { cardTemplate } from './utils.js';
-import { openCardPopup } from './modal.js';
+import { openCardPopup, deleteCard } from './modal.js';
 
 export function addCard(name, link) {
   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);

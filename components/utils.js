@@ -36,7 +36,7 @@ export const addButton = document.querySelector('.profile__add-button');
 export const editButton = document.querySelector('.profile__edit-button');
 export const avatarButton = document.querySelector('.profile__avatar');
 
-export const popups = document.querySelectorAll('.popup');
+export const popups = Array.from(document.querySelectorAll('.popup'));
 export const popupEdit = document.querySelector('#popupEdit');
 export const popupAdd = document.querySelector('#popupAdd');
 export const popupPhoto = document.querySelector('#popupPhoto');
@@ -53,13 +53,19 @@ export const avatarFormImg = document.querySelector('.profile__avatar-img');
 export const formElementEdit = document.forms.editForm;
 export const userNameInput = formElementEdit.elements.nameInput;
 export const userJobInput = formElementEdit.elements.jobInput;
+export const buttonFormElementEdit = formElementEdit.querySelector('.button');
+export const formElementEditInputList = Array.from(formElementEdit.querySelectorAll('.form-input'));
 
 export const formElementAdd = document.forms.addForm;
 export const placeInput = formElementAdd.elements.placeInput;
 export const urlInput = formElementAdd.elements.urlInput;
+export const buttonFormElementAdd = formElementAdd.querySelector('.button');
+export const formElementAddInputList = Array.from(formElementAdd.querySelectorAll('.form-input'));
 
 export const formElementAvatar = document.forms.avatarForm;
 export const urlAvatar = formElementAvatar.elements.urlAvatar;
+export const buttonFormElementAvatar = formElementAvatar.querySelector('.button');
+export const formElementAvatarInputList = Array.from(formElementAvatar.querySelectorAll('.form-input'));
 
 export const cardTemplate = document.querySelector('#element').content;
 export const cardContainer = document.querySelector('.elements');
